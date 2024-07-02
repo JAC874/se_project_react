@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__close {
+  background: transparent url(../../assets/closebtn.svg) center no-repeat;
+  background-size: contain;
+  height: 16px;
+  width: 16px;
+  border: none;
+  position: absolute;
+  right: 28px;
+  top: 20px;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+}
+
+.modal__content {
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: #fff;
+  position: relative;
+  padding: 28px 28px 36px 28px;
+  max-width: 496px;
+  max-height: 436px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: solid 1px #0000004d;
+  border-radius: 20px;
+}
+
+.modal__title {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.modal__form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, min-content);
+  gap: 24px;
+}
+
+.modal__input {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px #000;
+  padding: 0;
+}
+
+.modal__input::placeholder {
+  opacity: 50%;
+}
+
+.modal__radio-container {
+  border: none;
+  padding: 0;
+  margin: 0px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, min-content);
+  gap: 8px;
+}
+
+.modal__legend {
+  margin: 0 0 12px 0;
+}
+
+.modal__radio-box {
+  border-radius: 50%;
+  border: solid 1px #000;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+.modal__radio_label {
+  color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  display: flex;
+}
+
+.modal__radio-box:checked + .modal__radio_label {
+  color: black;
+}
+
+.modal__submit {
+  width: 124px;
+  height: 36px;
+  margin-top: 32px;
+  border-radius: 4px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  opacity: 100%;
+  transition: opacity 0.2s linear;
+}
+
+.modal__submit_disabled {
+  opacity: 30%;
+}
+
+.modal__submit:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.modal__submit_disabled:hover {
+  opacity: 0.3;
+}

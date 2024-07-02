@@ -1,0 +1,14 @@
+.cards__text {
+  margin: 40px 0 34px 0;
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 325px));
+  margin: 0 0 40px 0;
+  padding: 0;
+  list-style-type: none;
+  gap: 20px;
+}

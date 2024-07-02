@@ -1,0 +1,14 @@
+.footer__container {
+  font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto 0 24px 0;
+}
+
+.footer__copyright,
+.footer__prod-year {
+  margin: 0;
+}
