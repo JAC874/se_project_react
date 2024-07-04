@@ -1,0 +1,31 @@
+.modal__content_type_image {
+  max-width: 498px;
+  max-height: 610px;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+}
+
+.modal__close_type_image {
+  background: transparent url(../../assets/closebtn-white.svg) center no-repeat;
+}
+
+.modal__image {
+  max-width: 100%;
+  height: 498px;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+}
+
+.modal__description {
+  margin: 20px 0 12px 32px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.modal__weather {
+  margin: 0 0 32px 32px;
+  font-size: 20px;
+  line-height: 24px;
+}

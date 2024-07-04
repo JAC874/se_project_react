@@ -16,14 +16,15 @@
 }
 
 .modal__close {
-  background: transparent url(../../assets/closebtn.svg) center no-repeat;
+  background: url(../../assets/closebtn.svg);
   background-size: contain;
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
   border: none;
   position: absolute;
   right: 28px;
   top: 20px;
+  padding: 0;
 }
 
 .modal__close:hover {
@@ -36,7 +37,7 @@
   line-height: 20px;
   background-color: #fff;
   position: relative;
-  padding: 28px 28px 36px 28px;
+  padding: 28px 28px 36px;
   max-width: 496px;
   max-height: 436px;
   width: 100%;
@@ -90,20 +91,20 @@
 
 .modal__radio-box {
   border-radius: 50%;
-  border: solid 1px #000;
   height: 16px;
   width: 16px;
   margin-right: 8px;
+  accent-color: #000;
+}
+
+.modal__radio-box:checked ~ span {
+  color: black;
 }
 
 .modal__radio_label {
   color: rgba(0, 0, 0, 0.5);
   align-items: center;
   display: flex;
-}
-
-.modal__radio-box:checked + .modal__radio_label {
-  color: black;
 }
 
 .modal__submit {

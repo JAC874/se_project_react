@@ -1,10 +1,16 @@
 .page {
   background-color: #f3f3f3;
   font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .page__content {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 40px;
+ 
 }
