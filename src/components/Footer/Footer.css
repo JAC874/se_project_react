@@ -1,4 +1,4 @@
-.footer__container {
+.footer {
   font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
   font-size: 16px;
   line-height: 20px;
@@ -9,11 +9,6 @@
   padding-bottom: 24px;
   margin-top: auto;
 }
-
-/* .footer__copyright,
-.footer__prod-year {
-  margin: 0;
-} */
 
 .footer__copyright {
   margin-left: 40px;
