@@ -68,7 +68,7 @@ function App() {
           <input
             type="Url"
             className="modal__input"
-            id="name"
+            id="imageUrl"
             placeholder="Image URL"
           />
         </label>
