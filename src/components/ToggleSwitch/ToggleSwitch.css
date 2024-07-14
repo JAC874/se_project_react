@@ -1,0 +1,49 @@
+.switch {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+
+.switch__box {
+  border-radius: 25px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  width: 56px;
+  height: 28px;
+  appearance: none;
+}
+
+.switch__slider {
+  border-radius: 20px;
+  width: 28px;
+  height: 28px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+.switch__box:checked + .switch__slider {
+  transform: translateX(28px);
+}
+
+.switch__temp-container {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+  width: 56px;
+  height: 28px;
+}
+
+.switch__temp-F,
+.switch__temp-C {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.switch__temp-F.switch__active,
+.switch__temp-C.switch__active {
+  color: white;
+}

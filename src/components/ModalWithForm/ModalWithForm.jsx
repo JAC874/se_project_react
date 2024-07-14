@@ -7,6 +7,8 @@ function ModalWithForm({
   handleCloseClick,
   isOpen,
 }) {
+
+  
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
