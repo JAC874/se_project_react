@@ -18,10 +18,28 @@
   object-fit: contain;
 }
 
-.modal__description {
-  margin: 20px 0 12px 32px;
+.modal__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 32px 12px 32px;
+  box-sizing: border-box;
+}
+
+.modal__delete {
+  color: red;
+  border: none;
+  background-color: white;
+  cursor: pointer;
   font-size: 20px;
   line-height: 24px;
+  font-weight: 700;
+}
+
+.modal__description {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0;
 }
 
 .modal__weather {

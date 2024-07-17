@@ -4,6 +4,7 @@
   padding: 32px 0 28px;
   font-size: 20px;
   line-height: 24px;
+  max-width: 1360px;
 }
 
 .header__logo {
@@ -16,7 +17,6 @@
 
 .header__toggle-switch {
   margin: 0 20px 0 auto;
-
 }
 
 .header__add-clothes-btn {
@@ -32,6 +32,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.header__profile-link {
+  text-decoration: none;
+  color: black;
 }
 
 .header__username {

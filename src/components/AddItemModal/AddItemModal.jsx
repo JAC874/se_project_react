@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ closeActiveModal, activeModal, onAddItem }) => {
+function AddItemModal({ closeActiveModal, activeModal, onAddItem }) {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     console.log(e.target.value);
@@ -42,6 +42,7 @@ const AddItemModal = ({ closeActiveModal, activeModal, onAddItem }) => {
           id="name"
           placeholder="Name"
           value={name}
+          required
           onChange={handleNameChange}
         />
       </label>
@@ -51,6 +52,7 @@ const AddItemModal = ({ closeActiveModal, activeModal, onAddItem }) => {
           type="Url"
           className="modal__input"
           id="imageUrl"
+          required
           placeholder="Image URL"
           value={imageUrl}
           onChange={handleUrlChange}
@@ -94,6 +96,6 @@ const AddItemModal = ({ closeActiveModal, activeModal, onAddItem }) => {
       </fieldset>
     </ModalWithForm>
   );
-};
+}
 
 export default AddItemModal;
