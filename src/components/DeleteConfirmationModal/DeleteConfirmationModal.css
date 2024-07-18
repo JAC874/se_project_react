@@ -1,0 +1,41 @@
+.modal__delete-container {
+  font-family: "CabinetGrotesk-Bold", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 24px;
+  background-color: #fff;
+  position: relative;
+  padding: 60px 0 60px 0;
+  max-width: 670px;
+  max-height: 280px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: solid 1px #0000004d;
+  border-radius: 20px;
+}
+
+.modal__delete-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__delete-content-text {
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+.modal__delete-confirm-btn {
+  border: none;
+  background: none;
+  color: rgba(255, 77, 0, 1);
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.modal__delete-cancel-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}

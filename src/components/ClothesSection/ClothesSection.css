@@ -12,6 +12,7 @@
   font-size: 20px;
   color: rgba(0, 0, 0, 0.6);
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .clothes-section__items {

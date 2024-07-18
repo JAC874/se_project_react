@@ -4,25 +4,29 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function AddItemModal({ closeActiveModal, activeModal, onAddItem }) {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
-    console.log(e.target.value);
     setName(e.target.value);
   };
 
   const [imageUrl, setImageUrl] = useState("");
   const handleUrlChange = (e) => {
-    console.log(e.target.value);
     setImageUrl(e.target.value);
   };
 
   const [weather, setWeather] = useState("");
   const handleWeatherChange = (e) => {
-    console.log(e.target.value);
     setWeather(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, imageUrl, weather });
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setName("");
+    setImageUrl("");
+    setWeather("");
   };
 
   return (

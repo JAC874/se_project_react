@@ -1,5 +1,5 @@
 .card {
-  max-width: 325px;
+  width: 325px;
   height: 328px;
   position: relative;
   display: flex;
@@ -22,7 +22,7 @@
 .card__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fit;
   border-width: 1px;
   cursor: pointer;
 }

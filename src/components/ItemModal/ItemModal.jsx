@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-function ItemModal({ isOpen, card, handleCloseClick, handleCardDelete }) {
+function ItemModal({ isOpen, card, handleCloseClick, onCreateModal }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">
@@ -15,7 +15,7 @@ function ItemModal({ isOpen, card, handleCloseClick, handleCardDelete }) {
           <button
             className="modal__delete"
             type="submit"
-            onClick={handleCardDelete}
+            onClick={() => onCreateModal(card._id)}
           >
             Delete item
           </button>

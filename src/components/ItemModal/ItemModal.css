@@ -13,9 +13,10 @@
 .modal__image {
   max-width: 100%;
   height: 498px;
-  margin: 0;
+  margin: 0 auto 0 auto;
   padding: 0;
   object-fit: contain;
+  display: flex;
 }
 
 .modal__footer {
