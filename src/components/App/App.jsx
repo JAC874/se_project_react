@@ -25,6 +25,7 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -61,13 +62,16 @@ function App() {
   };
 
   const handleAddItemSubmit = ({ name, imageUrl, weather }) => {
+    setIsLoading(true);
     return addItems({ name, imageUrl, weather })
       .then((res) => {
         setClothingItems((prevItems) => [res, ...prevItems]);
         closeActiveModal();
-        resetForm();
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -140,6 +144,7 @@ function App() {
           closeActiveModal={closeActiveModal}
           activeModal={activeModal}
           onAddItem={handleAddItemSubmit}
+          isLoading={isLoading}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
