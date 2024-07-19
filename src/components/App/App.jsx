@@ -65,6 +65,7 @@ function App() {
       .then((res) => {
         setClothingItems((prevItems) => [res, ...prevItems]);
         closeActiveModal();
+        resetForm();
       })
       .catch(console.error);
   };

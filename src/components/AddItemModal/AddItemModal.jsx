@@ -23,6 +23,15 @@ function AddItemModal({ closeActiveModal, activeModal, onAddItem }) {
     resetForm();
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onAddItem({ name, imageUrl, weather })
+  //     .then(() => {
+  //       resetForm();
+  //     })
+  //     .catch(console.error);
+  // };
+
   const resetForm = () => {
     setName("");
     setImageUrl("");
