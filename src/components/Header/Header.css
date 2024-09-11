@@ -28,6 +28,24 @@
   cursor: pointer;
 }
 
+.header__log-in-btn {
+  margin: 0 20px 0 0;
+  border: none;
+}
+
+.header__log-in-btn:hover {
+  cursor: pointer;
+}
+
+.header__register-btn {
+  margin: 0 20px 0 0;
+  border: none;
+}
+
+.header__register-btn:hover {
+  cursor: pointer;
+}
+
 .header__user-container {
   display: flex;
   align-items: center;

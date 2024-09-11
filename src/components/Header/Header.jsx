@@ -5,7 +5,12 @@ import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  handleLoginClick,
+  handleRegisterClick,
+}) {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -28,6 +33,20 @@ function Header({ handleAddClick, weatherData }) {
         className="header__add-clothes-btn"
       >
         + Add clothes
+      </button>
+      <button
+        onClick={handleLoginClick}
+        type="button"
+        className="header__log-in-btn"
+      >
+        Log In
+      </button>
+      <button
+        onClick={handleRegisterClick}
+        type="button"
+        className="header__register-btn"
+      >
+        Sign Up
       </button>
       <Link to="/profile" className="header__profile-link">
         <div className="header__user-container">

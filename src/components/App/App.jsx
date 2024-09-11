@@ -6,7 +6,6 @@ import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import Profile from "../Profile/Profile";
 import AddItemModal from "../AddItemModal/AddItemModal";
@@ -14,6 +13,8 @@ import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { getItems, addItems, deleteCard } from "../../utils/api";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
+import LoginModal from "../LoginModal/LoginModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -34,6 +35,14 @@ function App() {
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
+  };
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleRegisterClick = () => {
+    setActiveModal("register");
   };
 
   const handleDeleteConfirmationModal = () => {
@@ -101,7 +110,7 @@ function App() {
 
   useEffect(() => {
     getItems()
-      .then((data) => {
+      .then(({ data }) => {
         setClothingItems(data);
       })
       .catch(console.error);
@@ -113,7 +122,12 @@ function App() {
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            handleLoginClick={handleLoginClick}
+            handleRegisterClick={handleRegisterClick}
+            weatherData={weatherData}
+          />
 
           <Routes>
             <Route
@@ -139,7 +153,6 @@ function App() {
           </Routes>
         </div>
         <Footer />
-
         <AddItemModal
           closeActiveModal={closeActiveModal}
           activeModal={activeModal}
@@ -157,6 +170,16 @@ function App() {
           onCreateModal={handleDeleteConfirmationModal}
           handleCloseClick={closeActiveModal}
           handleCardDelete={handleCardDelete}
+        />
+        <LoginModal
+          isOpen={activeModal === "login"}
+          closeActiveModal={closeActiveModal}
+          isLoading={isLoading}
+        />
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          closeActiveModal={closeActiveModal}
+          isLoading={isLoading}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
