@@ -1,21 +1,36 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function LoginModal({ closeActiveModal, isOpen, isLoading, onLogin }) {
+function LoginModal({ closeActiveModal, isOpen, isLoading, handleLogin }) {
   const { values, handleChange } = useForm({
     email: "",
     password: "",
   });
 
+  const [data, setData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+
+  //   const handleChange = (e) => {
+  //     const { name, value } = e.target;
+  //     setData((prevData) => ({
+  //       ...prevData,
+  //       [name]: value,
+  //     }));
+  //   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (values.email && values.password) {
-      // Call the login handler passed from props
-      onLogin(values);
-    } else {
-      alert("Both email and password are required.");
-    }
+    handleLogin(values)
+      .then(() => {
+        closeActiveModal();
+        navigate("/profile");
+      })
+      .catch((err) => {
+        console.error("Login error:", err);
+      });
   };
 
   return (

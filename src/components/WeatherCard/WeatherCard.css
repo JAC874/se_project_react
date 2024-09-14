@@ -1,9 +1,13 @@
 .weather-card {
+  display: flex;
   position: relative;
   display: flex;
   height: 80px;
   border-radius: 12px;
   overflow: hidden;
+  flex-shrink: 1;
+  flex-grow: 0;
+  max-width: 100%;
 }
 
 .weather-card__temp {
@@ -19,4 +23,5 @@
   object-fit: cover;
   object-position: right top;
   width: 100%;
+  max-width: 100%;
 }

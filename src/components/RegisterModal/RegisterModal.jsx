@@ -2,20 +2,38 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 
-function RegisterModal({ closeActiveModal, isOpen, isLoading }) {
+function RegisterModal({
+  closeActiveModal,
+  isOpen,
+  isLoading,
+  handleRegistration,
+}) {
   const { values, handleChange } = useForm({
     email: "",
     password: "",
+    name: "",
+    avatarUrl: "",
   });
+
+  //   const handleChange = (e) => {
+  //     const { name, value } = e.target;
+  //     setData((prevData) => ({
+  //       ...prevData,
+  //       [name]: value,
+  //     }));
+  //   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (values.email && values.password) {
-      // Call the login handler passed from props
-      onLogin(values);
-    } else {
-      alert("Both email and password are required.");
-    }
+    console.log("Form values:", values);
+
+    handleRegistration({
+      email: values.email,
+      password: values.password,
+      name: values.name,
+      avatar: values.avatarUrl,
+    });
+    closeActiveModal();
   };
 
   return (
@@ -74,7 +92,6 @@ function RegisterModal({ closeActiveModal, isOpen, isLoading }) {
           id="avatar-url"
           placeholder="Avatar URL"
           name="avatarUrl"
-          required
           onChange={handleChange}
           value={values.avatarUrl}
         />

@@ -1,3 +1,13 @@
+.footer__container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .footer {
   font-family: "CabinetGrotesk-Medium", Arial, sans-serif;
   font-size: 16px;
@@ -7,8 +17,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1360px;
-  padding: 0 40px 24px 40px;
-  margin: auto auto 0;
+  /* max-width: 1360px; */
+  /* padding: 0 0 24px 0; */
+  /* margin: auto auto 0; */
   box-sizing: border-box;
 }
