@@ -5,8 +5,9 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function ClothesSection({ handleCardClick, clothingItems, handleAddClick }) {
   const currentUser = useContext(CurrentUserContext);
+
   const userCards = clothingItems.filter(
-    (item) => item.owner === currentUser._id
+    (item) => item.owner === currentUser.userData._id
   );
 
   return (

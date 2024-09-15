@@ -12,7 +12,7 @@ function RegisterModal({
     email: "",
     password: "",
     name: "",
-    avatarUrl: "",
+    avatar: "",
   });
 
   //   const handleChange = (e) => {
@@ -31,7 +31,7 @@ function RegisterModal({
       email: values.email,
       password: values.password,
       name: values.name,
-      avatar: values.avatarUrl,
+      avatar: values.avatar,
     });
     closeActiveModal();
   };
@@ -84,16 +84,16 @@ function RegisterModal({
           value={values.name}
         />
       </label>
-      <label htmlFor="avatarUrl" className="modal__label">
+      <label htmlFor="avatar" className="modal__label">
         Avatar URL*
         <input
           type="url"
           className="modal__input"
           id="avatar-url"
           placeholder="Avatar URL"
-          name="avatarUrl"
+          name="avatar"
           onChange={handleChange}
-          value={values.avatarUrl}
+          value={values.avatar}
         />
       </label>
     </ModalWithForm>

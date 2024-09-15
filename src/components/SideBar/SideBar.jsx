@@ -2,8 +2,9 @@ import "./SideBar.css";
 import avatar from "../../assets/avatar.svg";
 import { useContext, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useEffect } from "react";
 
-function SideBar() {
+function SideBar({ handleEditProfileClick }) {
   const { isLoggedin, userData } = useContext(CurrentUserContext);
   const [imageError, setImageError] = useState(false);
 
@@ -11,15 +12,19 @@ function SideBar() {
     setImageError(true);
   };
 
+  useEffect(() => {
+    console.log("User data updated: ", userData); // Check if the user data updates correctly
+  }, [userData]);
+
   return (
     <div className="sidebar">
       <div className="sidebar__profile-info">
         {!imageError && userData?.avatar ? (
           <img
-            src={userData.avatar} // Use user's avatar URL
-            alt="" // Leave alt blank, since we will use avatar initials on error
+            src={userData.avatar}
+            alt=""
             className="sidebar__avatar"
-            onError={handleImageError} // Handle error when image fails to load
+            onError={handleImageError}
           />
         ) : (
           <div className="sidebar__avatar-initial">
@@ -28,7 +33,11 @@ function SideBar() {
         )}
         <p className="sidebar__username">{userData?.name || "User Name"}</p>
       </div>
-      <button type="button" className="sidebar__profile-edit-btn">
+      <button
+        type="button"
+        className="sidebar__profile-edit-btn"
+        onClick={handleEditProfileClick}
+      >
         Change profile data
       </button>
       <button type="button" className="sidebar__profile-logout-btn">
