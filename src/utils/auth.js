@@ -1,4 +1,4 @@
-import { request, checkServerResponse } from "./api";
+import { request } from "./api";
 const baseUrl = "http://localhost:3001";
 
 export function registration({ name, avatar, email, password }) {
@@ -8,7 +8,7 @@ export function registration({ name, avatar, email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then(checkServerResponse);
+  });
 }
 
 export function authorization({ email, password }) {
@@ -18,7 +18,7 @@ export function authorization({ email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then(checkServerResponse);
+  });
 }
 
 export function isTokenValid(token) {
@@ -28,5 +28,5 @@ export function isTokenValid(token) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-  }).then(checkServerResponse);
+  });
 }

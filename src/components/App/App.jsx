@@ -54,7 +54,6 @@ function App() {
 
   useEffect(() => {
     const token = getToken();
-    console.log("Token in useEffect:", token);
     if (!token) return;
     getCurrentUser(token)
       .then((res) => {
@@ -72,16 +71,12 @@ function App() {
   const handleRegistration = (values) => {
     registration(values)
       .then((res) => {
-        console.log("Registration response:", res); // Ensure token is returned
-        const token = res.token;
-        setToken(token);
-        setIsLoggedin(true);
         setUserData({
           id: res._id,
           name: res.name,
           avatar: res?.avatar,
         });
-        localStorage.setItem("userData", JSON.stringify(res));
+        handleLogin(values);
         closeActiveModal();
       })
       .catch((err) => {
@@ -94,9 +89,8 @@ function App() {
 
     return authorization(values)
       .then((res) => {
-        const token = res.token;
-        setToken(token);
-        console.log(token);
+        // const token = res.token;
+        setToken(res.token);
         return isTokenValid(res.token);
       })
       .then((res) => {
