@@ -1,8 +1,8 @@
-import { checkServerResponse } from "./api";
+import { request, checkServerResponse } from "./api";
 const baseUrl = "http://localhost:3001";
 
 export function registration({ name, avatar, email, password }) {
-  return fetch(`${baseUrl}/signup`, {
+  return request(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export function registration({ name, avatar, email, password }) {
 }
 
 export function authorization({ email, password }) {
-  return fetch(`${baseUrl}/signin`, {
+  return request(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export function authorization({ email, password }) {
 }
 
 export function isTokenValid(token) {
-  return fetch(`${baseUrl}/users/me`, {
+  return request(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

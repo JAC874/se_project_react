@@ -2,20 +2,22 @@ import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../hooks/useForm";
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function EditProfileModal({
   closeActiveModal,
   isOpen,
   isLoading,
   handleUpdateUser,
-  userData,
 }) {
   const { values, handleChange, setValues } = useForm({
     name: "",
     avatar: "",
   });
 
-  // Update form values when userData changes
+  const { userData } = useContext(CurrentUserContext);
+
   useEffect(() => {
     if (userData && isOpen) {
       setValues({
@@ -28,7 +30,6 @@ function EditProfileModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     handleUpdateUser(values);
-    closeActiveModal();
   };
 
   return (
@@ -45,7 +46,7 @@ function EditProfileModal({
         <input
           type="text"
           className="modal__input"
-          id="name"
+          id="username"
           name="name"
           placeholder="Name"
           value={values.name}

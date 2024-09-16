@@ -34,7 +34,6 @@ function RegisterModal({
       name: values.name,
       avatar: values.avatar,
     });
-    closeActiveModal();
   };
 
   return (

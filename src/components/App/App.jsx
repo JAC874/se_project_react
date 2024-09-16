@@ -54,6 +54,7 @@ function App() {
 
   useEffect(() => {
     const token = getToken();
+    console.log("Token in useEffect:", token);
     if (!token) return;
     getCurrentUser(token)
       .then((res) => {
@@ -71,18 +72,20 @@ function App() {
   const handleRegistration = (values) => {
     registration(values)
       .then((res) => {
-        setToken(res.token);
+        console.log("Registration response:", res); // Ensure token is returned
+        const token = res.token;
+        setToken(token);
         setIsLoggedin(true);
         setUserData({
           id: res._id,
           name: res.name,
           avatar: res?.avatar,
         });
-        localStorage.setItem("userData", JSON.stringify(user));
+        localStorage.setItem("userData", JSON.stringify(res));
+        closeActiveModal();
       })
       .catch((err) => {
         console.error("Authorization failed:", err);
-        return Promise.reject(err);
       });
   };
 
@@ -92,8 +95,8 @@ function App() {
     return authorization(values)
       .then((res) => {
         const token = res.token;
-        setToken(res.token);
-        // console.log(token);
+        setToken(token);
+        console.log(token);
         return isTokenValid(res.token);
       })
       .then((res) => {
@@ -172,6 +175,7 @@ function App() {
           name: res.data.name,
           avatar: res.data.avatar,
         });
+        closeActiveModal();
       })
       .catch((err) => {
         console.error("Failed to update user: ", err);
@@ -280,7 +284,6 @@ function App() {
                       clothingItems={clothingItems}
                       handleAddClick={handleAddClick}
                       handleEditProfileClick={handleEditProfileClick}
-                      userData={userData}
                       handleCardLike={handleCardLike}
                       handleLogout={handleLogout}
                     />
@@ -327,7 +330,6 @@ function App() {
             closeActiveModal={closeActiveModal}
             isLoading={isLoading}
             handleUpdateUser={handleUpdateUser}
-            userData={userData}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>
