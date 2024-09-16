@@ -4,7 +4,13 @@ import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginModal({ closeActiveModal, isOpen, isLoading, handleLogin }) {
+function LoginModal({
+  closeActiveModal,
+  isOpen,
+  isLoading,
+  handleLogin,
+  handleTextButton,
+}) {
   const { values, handleChange } = useForm({
     email: "",
     password: "",
@@ -38,6 +44,8 @@ function LoginModal({ closeActiveModal, isOpen, isLoading, handleLogin }) {
       name="login"
       title="Log in"
       buttonText={isLoading ? "Logging in..." : "Log In"}
+      redirectButtonText="or Sign Up"
+      handleTextButton={handleTextButton}
       isOpen={isOpen}
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}

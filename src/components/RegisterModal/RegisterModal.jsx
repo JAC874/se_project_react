@@ -7,6 +7,7 @@ function RegisterModal({
   isOpen,
   isLoading,
   handleRegistration,
+  handleTextButton,
 }) {
   const { values, handleChange } = useForm({
     email: "",
@@ -41,6 +42,8 @@ function RegisterModal({
       name="register"
       title="Sign Up"
       buttonText={isLoading ? "Saving..." : "Sign Up"}
+      redirectButtonText="or Log In"
+      handleTextButton={handleTextButton}
       isOpen={isOpen}
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}

@@ -59,7 +59,27 @@ export function updateCurrentUser(data, token) {
   })
     .then(checkServerResponse)
     .then((response) => {
-      console.log("API Response after update:", response); // Log the response
+      // console.log("API Response after update:", response); // Log the response
       return response; // Ensure the data is returned correctly
     });
+}
+
+export function addCardLike(cardId, token) {
+  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(checkServerResponse);
+}
+
+export function deleteCardLike(cardId, token) {
+  return fetch(`${baseUrl}/items/${cardId}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }).then(checkServerResponse);
 }

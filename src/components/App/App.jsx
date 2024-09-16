@@ -18,6 +18,8 @@ import {
   deleteCard,
   getCurrentUser,
   updateCurrentUser,
+  addCardLike,
+  deleteCardLike,
 } from "../../utils/api";
 import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -61,10 +63,10 @@ function App() {
       .catch(console.error);
   }, []);
 
-  useEffect(() => {
-    console.log("User data:", userData);
-    console.log("Is Logged In:", isLoggedin);
-  }, [userData, isLoggedin]);
+  // useEffect(() => {
+  //   console.log("User data:", userData);
+  //   console.log("Is Logged In:", isLoggedin);
+  // }, [userData, isLoggedin]);
 
   const handleRegistration = (values) => {
     registration(values)
@@ -91,7 +93,7 @@ function App() {
       .then((res) => {
         const token = res.token;
         setToken(res.token);
-        console.log(token);
+        // console.log(token);
         return isTokenValid(res.token);
       })
       .then((res) => {
@@ -102,6 +104,38 @@ function App() {
         console.error("Authorization failed:", err);
         return Promise.reject(err);
       });
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = getToken(); // Make sure you're fetching the correct token
+    // Check if this card is not currently liked
+    !isLiked
+      ? // if so, send a request to add the user's id to the card's likes array
+
+        // the first argument is the card's id
+        addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // if not, send a request to remove the user's id from the card's likes array
+
+        // the first argument is the card's id
+        deleteCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard.data : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
+  const handleLogout = () => {
+    removeToken();
+    setIsLoggedin(false);
+    setUserData({ id: "", name: "", avatarUrl: "" });
   };
 
   const handleCardClick = (card) => {
@@ -233,6 +267,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    handleCardLike={handleCardLike}
                   />
                 }
               />
@@ -246,6 +281,8 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleEditProfileClick={handleEditProfileClick}
                       userData={userData}
+                      handleCardLike={handleCardLike}
+                      handleLogout={handleLogout}
                     />
                   </ProtectedRoute>
                 }
@@ -276,12 +313,14 @@ function App() {
             closeActiveModal={closeActiveModal}
             isLoading={isLoading}
             handleLogin={handleLogin}
+            handleTextButton={handleRegisterClick}
           />
           <RegisterModal
             isOpen={activeModal === "register"}
             closeActiveModal={closeActiveModal}
             isLoading={isLoading}
             handleRegistration={handleRegistration}
+            handleTextButton={handleLoginClick}
           />
           <EditProfileModal
             isOpen={activeModal === "edit-profile"}

@@ -8,6 +8,8 @@ function Profile({
   handleAddClick,
   handleEditProfileClick,
   userData,
+  handleCardLike,
+  handleLogout,
 }) {
   return (
     <div className="profile">
@@ -15,6 +17,7 @@ function Profile({
         <SideBar
           handleEditProfileClick={handleEditProfileClick}
           userData={userData}
+          handleLogout={handleLogout}
         />
       </section>
       <section className="profile__clothes-section">
@@ -22,6 +25,7 @@ function Profile({
           handleCardClick={handleCardClick}
           clothingItems={clothingItems}
           handleAddClick={handleAddClick}
+          handleCardLike={handleCardLike}
         />
       </section>
     </div>

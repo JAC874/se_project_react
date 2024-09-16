@@ -9,14 +9,22 @@
   overflow: hidden;
 }
 
+.card__title-container {
+  position: absolute;
+  padding-top: 12px;
+  display: flex;
+  gap: 12px;
+}
+
 .card__name {
   margin: 0;
   color: #0009;
   background-color: #fff;
   padding: 2px 12px;
   border-radius: 4px;
-  position: absolute;
+  /* position: absolute; */
   top: 15px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .card__image {
@@ -25,4 +33,13 @@
   object-fit: fit;
   border-width: 1px;
   cursor: pointer;
+}
+
+.card__like {
+  align-self: center;
+  cursor: pointer;
+}
+
+.card__like-hidden {
+  display: none;
 }

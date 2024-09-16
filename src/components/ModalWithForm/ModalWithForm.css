@@ -129,6 +129,32 @@
   align-self: start;
 }
 
+.modal__text-button {
+  max-width: 124px;
+  width: auto;
+  height: 36px;
+  margin-top: 12px;
+  border-radius: 4px;
+  border: none;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  line-height: 36px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  justify-self: start;
+  align-self: start;
+}
+
+.modal__text-button:hover {
+  /* opacity: 50%; */
+  cursor: pointer;
+  color: black;
+}
+
 .modal__submit_disabled {
   opacity: 30%;
 }

@@ -3,18 +3,25 @@ import avatar from "../../assets/avatar.svg";
 import { useContext, useState } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SideBar({ handleEditProfileClick }) {
+function SideBar({ handleEditProfileClick, handleLogout }) {
   const { isLoggedin, userData } = useContext(CurrentUserContext);
+  const navigate = useNavigate();
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
     setImageError(true);
   };
 
-  useEffect(() => {
-    console.log("User data updated: ", userData); // Check if the user data updates correctly
-  }, [userData]);
+  const handleLogoutClick = () => {
+    handleLogout();
+    navigate("/");
+  };
+
+  // useEffect(() => {
+  //   console.log("User data updated: ", userData); // Check if the user data updates correctly
+  // }, [userData]);
 
   return (
     <div className="sidebar">
@@ -40,8 +47,12 @@ function SideBar({ handleEditProfileClick }) {
       >
         Change profile data
       </button>
-      <button type="button" className="sidebar__profile-logout-btn">
-        Logout
+      <button
+        type="button"
+        className="sidebar__profile-logout-btn"
+        onClick={handleLogoutClick}
+      >
+        Log out
       </button>
     </div>
   );
