@@ -16,6 +16,8 @@
   height: 56px;
   width: 56px;
   margin-right: 16px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .sidebar__profile-edit-btn {
