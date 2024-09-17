@@ -41,7 +41,7 @@ function EditProfileModal({
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="modal__label">
+      <label htmlFor="username" className="modal__label">
         Name *
         <input
           type="text"

@@ -50,7 +50,7 @@ function LoginModal({
       handleCloseClick={closeActiveModal}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="email" className="modal__label">
+      <label htmlFor="user-email" className="modal__label">
         Email
         <input
           type="email"
@@ -63,7 +63,7 @@ function LoginModal({
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="password" className="modal__label">
+      <label htmlFor="user-password" className="modal__label">
         Password
         <input
           type="password"
