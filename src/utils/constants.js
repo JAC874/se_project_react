@@ -83,4 +83,9 @@ export const coordinates = {
   longitude: -73.935242,
 };
 
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.pixelfucker.com"
+    : "http://localhost:3001";
+
 export const APIkey = "e011e3076c5ac802687ba23ae515827b";

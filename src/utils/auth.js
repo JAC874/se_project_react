@@ -1,5 +1,6 @@
+import { baseUrl } from "./constants";
+
 import { request } from "./api";
-const baseUrl = "http://localhost:3001";
 
 export function registration({ name, avatar, email, password }) {
   return request(`${baseUrl}/signup`, {

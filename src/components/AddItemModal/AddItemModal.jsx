@@ -12,6 +12,8 @@ function AddItemModal({ closeActiveModal, activeModal, onAddItem, isLoading }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (values.name && values.imageUrl && values.weather) {
+      console.log("Submitting values:", values); // Log the data
+
       onAddItem(values)
         .then(() => {
           resetForm();
